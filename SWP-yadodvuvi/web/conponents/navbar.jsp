@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,24 +47,45 @@
                     <div class="d-flex">
                         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                            Login
-                        </button>
-                        <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
-                                data-bs-target="#registerModal">
-                            Register
-                        </button>
+                        <c:if test="${user != null}">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-dark shadow-none me-lg-3 me-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ${user.getFullname()}
+                                    <span class="dropdown-arrow"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="signout">Sign out</a></li>
+                                </ul>
+                            </div>
+
+                        </c:if>
+                        <c:if test="${user == null}">
+                            <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal"
+                                    data-bs-target="#loginModal">
+                                Login
+                            </button>
+                            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal">
+                                Register
+                            </button>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </nav>
 
+        <!-- navbar.jsp -->
+        <!-- Your other HTML code -->
+        <!-- navbar.jsp -->
+        <!-- Your other HTML code -->
+
+        <!-- Place the modal code here -->
         <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="">
+                    <form action="signin" method="post">
                         <div class="modal-header">
                             <h5 class="modal-title d-flex align-items-lg-center">
                                 <i class="bi bi-person-circle fs-3 me-2"></i>User Login
@@ -74,17 +96,18 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label class="form-label">Email address</label>
-                                <input type="email" class="form-control shadow-none">
+                                <input type="email" class="form-control shadow-none" name="email" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control shadow-none">
+                                <input type="password" class="form-control shadow-none" name="password" required>
                                 <span id="passwordHelpInline" class="form-text">
                                     Must be 8-20 characters long.
                                 </span>
                             </div>
+                            <p class="text-danger">${mess}</p> <!-- Place the ${mess} attribute here -->
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
+                                <button type="submit" class="btn btn-dark shadow-none" id="loginButton">LOGIN</button>
                                 <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot
                                     Password</a>
                             </div>
@@ -93,6 +116,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- Your other HTML code -->
+
+
+        <!-- Your other HTML code -->
+
 
         <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -157,5 +186,7 @@
             </div>
         </div>
         <!-- banner -->
+        <!-- JavaScript code -->
+
     </body>
 </html>

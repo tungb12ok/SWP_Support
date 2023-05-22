@@ -252,6 +252,21 @@
                 }
             });
         </script>
+        <script>
+            // Function to show the login modal
+            function showLoginModal() {
+                $('#loginModal').modal('show');
+            }
+
+            // Execute the function to show the modal if 'showModal' is true
+            if (${showModal}) {
+                $(document).ready(function () {
+                    showLoginModal();
+                });
+            }
+        </script>
+
+
     </body>
 
 </html>

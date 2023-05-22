@@ -42,7 +42,7 @@ public class SignInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user = request.getParameter("email");
         String password = request.getParameter("password");
-
+        request.setAttribute("showModal", false);
         UserDAO dao = new UserDAO();
         User u = dao.checkAuthentication(user, password);
         request.setAttribute("user", u);

@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -185,8 +186,19 @@
                 </div>
             </div>
         </div>
-        <!-- banner -->
-        <!-- JavaScript code -->
 
     </body>
+    <!-- JavaScript code -->
+    <script>
+        <c:if test="${showModal}">
+            <c:set var="showModalJS" value="true" />
+        </c:if>
+
+        <c:if test="${showModalJS}">
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('button[data-bs-target="#loginModal"]').click();
+        });
+        </c:if>
+    </script>
+
 </html>

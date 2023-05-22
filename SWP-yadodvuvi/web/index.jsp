@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -252,19 +254,7 @@
                 }
             });
         </script>
-        <script>
-            // Function to show the login modal
-            function showLoginModal() {
-                $('#loginModal').modal('show');
-            }
-
-            // Execute the function to show the modal if 'showModal' is true
-            if (${showModal}) {
-                $(document).ready(function () {
-                    showLoginModal();
-                });
-            }
-        </script>
+        
 
 
     </body>

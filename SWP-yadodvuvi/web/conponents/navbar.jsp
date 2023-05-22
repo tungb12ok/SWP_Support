@@ -21,16 +21,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="hotel.jsp">KhÃ¡ch sáº¡n</a>
+                            <a class="nav-link me-2" href="hotel.jsp">Khách sạn</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-2" href="index.jsp">Tours</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="#">VÃ© mÃ¡y bay</a>
+                            <a class="nav-link me-2" href="#">Vé máy bay</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="#">Cáº©m nang du lá»ch</a>
+                            <a class="nav-link me-2" href="#">Cẩm nang du lịch</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -39,9 +39,9 @@
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item me-2" href="#">Æ¯u ÄÃ£i Äáº·c biá»t</a></li>
-                                <li><a class="dropdown-item me-2" href="#">Giá»i thiá»u</a></li>
-                                <li><a class="dropdown-item me-2" href="#">Há» trá»£</a></li>
+                                <li><a class="dropdown-item me-2" href="#">Ưu đãi đặc biệt</a></li>
+                                <li><a class="dropdown-item me-2" href="#">Giới thiệu</a></li>
+                                <li><a class="dropdown-item me-2" href="#">Hỗ trợ</a></li>
                             </ul>
                         </li>
                     </ul>

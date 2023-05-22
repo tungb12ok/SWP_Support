@@ -55,16 +55,29 @@
         <div class="container check-form">
             <div class="row text-align-center">
                 <div class="col-lg-12 bg-white shadow p-4 rounded">
-                    <h1 class="font">DU Lá»CH THEO CÃ TÃNH </h1>
-                    <h5 class="mb-4 h-font">Tráº£i nghiá»m trá»n váº¹n - GiÃ¡ cáº£ pháº£i chÄng</h5>
+                    <h1 class="font">Du lịch theo cá tính 8   </h1>
+                    <h5 class="mb-4 h-font">Trải nghiệm trọn vẹn - Giá cả phải chăng</h5>
                     <form>
                         <div class="row align-items-end">
                             <div class="col-lg-3 mb-3">
-                                <label class="form-label" style="font-weight: 500;">NgÃ y khá»i hÃ nh</label>
+                                <label class="form-label" style="font-weight: 500;">Ngày khởi hành</label>
                                 <input type="date" class="form-control shadow-none">
                             </div>
                             <div class="col-lg-3 mb-3">
-                                <label class="form-label" style="font-weight: 500;">Khá»i hÃ nh tá»«</label>
+                                <label class="form-label" style="font-weight: 500;">Khởi hành từ</label>
+                                <select class="form-control shadow-none">
+                                    <option value="Da Nang">Tp Đà Nẵng </option>
+                                    <option value="Há» ChÃ­ Minh">Tp Há» ChÃ­ Minh</option>
+                                    <option value="Ha Noi">Tp HÃ  Ná»i</option>
+                                    <option value="Thá»«a ThiÃªn Huáº¿">Huáº¿</option>
+                                    <option value="Quáº£ng BÃ¬nh">Quáº£ng BÃ¬nh</option>
+                                    <option value="Lai ChÃ¢u">Lai ChÃ¢u</option>
+                                    <option value="Äiá»n BiÃªn">Äiá»n BiÃªn</option>
+                                    <option value="Quang Nam">Quang Nam</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label" style="font-weight: 500;">Đến</label>
                                 <select class="form-control shadow-none">
                                     <option value="Da Nang">Tp ÄÃ  Náºµng </option>
                                     <option value="Há» ChÃ­ Minh">Tp Há» ChÃ­ Minh</option>
@@ -77,20 +90,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 mb-3">
-                                <label class="form-label" style="font-weight: 500;">Äáº¿n</label>
-                                <select class="form-control shadow-none">
-                                    <option value="Da Nang">Tp ÄÃ  Náºµng </option>
-                                    <option value="Há» ChÃ­ Minh">Tp Há» ChÃ­ Minh</option>
-                                    <option value="Ha Noi">Tp HÃ  Ná»i</option>
-                                    <option value="Thá»«a ThiÃªn Huáº¿">Huáº¿</option>
-                                    <option value="Quáº£ng BÃ¬nh">Quáº£ng BÃ¬nh</option>
-                                    <option value="Lai ChÃ¢u">Lai ChÃ¢u</option>
-                                    <option value="Äiá»n BiÃªn">Äiá»n BiÃªn</option>
-                                    <option value="Quang Nam">Quang Nam</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-3 mb-3">
-                                <button type="submit" class="btn text-white shadow-none custom-bg">TÃ¬m kiáº¿m</button>
+                                <button type="submit" class="btn text-white shadow-none custom-bg">Tìm kiếm</button>
                             </div>
                         </div>
                     </form>

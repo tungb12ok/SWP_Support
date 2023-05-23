@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+
 import entities.User;
-        
+
 /**
  *
  * @author tungl
@@ -41,8 +42,37 @@ public class UserDAO extends MyDAO {
         }
         return userObj;
     }
+
+    public boolean registerUser(String fullName, int cmnd, String email, String userName, String password, String phone, String userType, boolean isBlocked) {
+        String xSql = "INSERT INTO [dbo].[Users] ([FullName], [cmnd], [Email], [userName], [Password], [Phone], [UserType], [IsBlocked]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, fullName);
+            ps.setInt(2, cmnd);
+            ps.setString(3, email);
+            ps.setString(4, userName);
+            ps.setString(5, password);
+            ps.setString(6, phone);
+            ps.setString(7, userType);
+            ps.setBoolean(8, isBlocked);
+
+            int rowsAffected = ps.executeUpdate();
+
+            ps.close();
+
+            if (rowsAffected > 0) {
+                return true; // Đăng ký thành công
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false; // Đăng ký thất bại
+    }
+
     public static void main(String[] args) {
         UserDAO dao = new UserDAO();
-        System.out.println(dao.checkAuthentication("tungb12ok","123"));
+        System.out.println(dao.checkAuthentication("tungb12ok", "123"));
     }
 }

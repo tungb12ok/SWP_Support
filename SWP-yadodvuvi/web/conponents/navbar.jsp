@@ -140,42 +140,44 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-6 ps-0 mb-3">
-                                        <label class="form-label">First Name</label>
-                                        <input type="text" class="form-control shadow-none">
+                                        <label class="form-label" >First Name</label>
+                                        <input type="text" class="form-control shadow-none" name="firstName" required>
                                     </div>
                                     <div class="col-md-6 p-0 mb-3 ">
                                         <label class="form-label">Last Name</label>
-                                        <input type="text" class="form-control shadow-none">
+                                        <input type="text" class="form-control shadow-none" name="lastName" required">
                                     </div>
                                     <div class="col-md-6 ps-0 mb-3">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control shadow-none">
+                                        <input type="email" class="form-control shadow-none" name="email" required">
                                     </div>
                                     <div class="col-md-6 p-0 mb-3">
                                         <label class="form-label">Phone number</label>
-                                        <input type="number" class="form-control shadow-none">
+                                        <input type="number" class="form-control shadow-none" name="phone" required>
                                     </div>
                                     <div class="col-md-12 p-0 mb-3">
                                         <label class="form-label">Address</label>
-                                        <textarea class="form-control shadow-none" rows="1"></textarea>
+                                        <textarea class="form-control shadow-none" rows="1" name="address" required"></textarea>
                                     </div>
-                                    <div class="col-md-6 ps-0 mb-3">
-                                        <label class="form-label">Pincode</label>
-                                        <input type="number" class="form-control shadow-none">
-                                    </div>
+
                                     <div class="col-md-6 p-0 mb-3">
                                         <label class="form-label">Date of birth</label>
-                                        <input type="date" class="form-control shadow-none">
+                                        <input type="date" class="form-control shadow-none" name="date" required">
                                     </div>
                                     <div class="col-md-6 ps-0 mb-3">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control shadow-none">
+                                        <input type="password" class="form-control shadow-none" name="password" id="password" required>
                                     </div>
+                                    <c:if test="${re_password !=null}">
+                                        <p class="text-danger">${re_password}</p>
+                                    </c:if>
                                     <div class="col-md-6 p-0 mb-3">
                                         <label class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control shadow-none">
+                                        <input type="password" class="form-control shadow-none" name="re_password" required>
                                     </div>
-
+                                    <c:if test="${re_password !=null}">
+                                        <p class="text-danger">${re_password}</p>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="text-center my-1">
@@ -199,6 +201,22 @@
             document.querySelector('button[data-bs-target="#loginModal"]').click();
         });
         </c:if>
+        var passwordInput = document.getElementById("password");
+
+        passwordInput.addEventListener("input", function () {
+            var password = this.value;
+            var errorMessage = document.getElementById("password-error");
+
+            if (password.length < 8) {
+                errorMessage.textContent = "Password must be at least 8 characters long.";
+                passwordInput.setCustomValidity("Password must be at least 8 characters long.");
+            } else {
+                errorMessage.textContent = "";
+                passwordInput.setCustomValidity("");
+            }
+        });
+
     </script>
+
 
 </html>

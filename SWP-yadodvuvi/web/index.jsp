@@ -65,30 +65,13 @@
                             </div>
                             <div class="col-lg-3 mb-3">
                                 <label class="form-label" style="font-weight: 500;">Khởi hành từ</label>
-                                <select class="form-control shadow-none">
-                                    <option value="Da Nang">Tp Đà Nẵng </option>
-                                    <option value="Há» ChÃ­ Minh">Tp Há» ChÃ­ Minh</option>
-                                    <option value="Ha Noi">Tp HÃ  Ná»i</option>
-                                    <option value="Thá»«a ThiÃªn Huáº¿">Huáº¿</option>
-                                    <option value="Quáº£ng BÃ¬nh">Quáº£ng BÃ¬nh</option>
-                                    <option value="Lai ChÃ¢u">Lai ChÃ¢u</option>
-                                    <option value="Äiá»n BiÃªn">Äiá»n BiÃªn</option>
-                                    <option value="Quang Nam">Quang Nam</option>
-                                </select>
+                                <select class="form-control shadow-none" id="fromProvinceSelect"></select>
                             </div>
                             <div class="col-lg-3 mb-3">
                                 <label class="form-label" style="font-weight: 500;">Đến</label>
-                                <select class="form-control shadow-none">
-                                    <option value="Da Nang">Tp ÄÃ  Náºµng </option>
-                                    <option value="Há» ChÃ­ Minh">Tp Há» ChÃ­ Minh</option>
-                                    <option value="Ha Noi">Tp HÃ  Ná»i</option>
-                                    <option value="Thá»«a ThiÃªn Huáº¿">Huáº¿</option>
-                                    <option value="Quáº£ng BÃ¬nh">Quáº£ng BÃ¬nh</option>
-                                    <option value="Lai ChÃ¢u">Lai ChÃ¢u</option>
-                                    <option value="Äiá»n BiÃªn">Äiá»n BiÃªn</option>
-                                    <option value="Quang Nam">Quang Nam</option>
-                                </select>
+                                <select class="form-control shadow-none" id="toProvinceSelect"></select>
                             </div>
+
                             <div class="col-lg-3 mb-3">
                                 <button type="submit" class="btn text-white shadow-none custom-bg">Tìm kiếm</button>
                             </div>
@@ -242,7 +225,7 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+        <script src="js/call_api.js"></script>
         <script>
             var swiper = new Swiper(".swiper-container", {
                 spaceBetween: 30,
@@ -255,8 +238,6 @@
             });
         </script>
         
-
-
     </body>
 
 </html>

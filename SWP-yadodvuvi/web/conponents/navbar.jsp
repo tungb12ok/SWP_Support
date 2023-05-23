@@ -99,10 +99,6 @@
                                 <label class="form-label">Email address</label>
                                 <input type="email" class="form-control shadow-none" name="email" required>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email address</label>
-                                <input class="form-control shadow-none" name="cccd   0" required>
-                            </div>
                             <div class="mb-4">
                                 <label class="form-label">Password</label>
                                 <input type="password" class="form-control shadow-none" name="password" required>

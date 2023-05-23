@@ -73,6 +73,6 @@ public class UserDAO extends MyDAO {
 
     public static void main(String[] args) {
         UserDAO dao = new UserDAO();
-        System.out.println(dao.checkAuthentication("tungb12ok", "123"));
+        dao.registerUser("tung", 012312032103, "tung@gmail.com", "tungb12ok", "tung123ok", "087654321", "Admin", true);
     }
 }

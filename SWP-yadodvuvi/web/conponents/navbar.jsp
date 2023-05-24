@@ -12,7 +12,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lag-3 py-lg-2 shadow-sm sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand me-5 fw-blod fs-3 h-font" href="index.jsp">Yadovuvi</a>
+                <a class="navbar-brand me-5 fw-blod fs-3 h-font" href="home">Yadovuvi</a>
                 <button class="navbar-toggler shadow-non" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
                             <a class="nav-link me-2" href="hotel.jsp">Khách sạn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="index.jsp">Tours</a>
+                            <a class="nav-link me-2" href="home">Tours</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-2" href="#">Vé máy bay</a>
@@ -54,13 +54,19 @@
                                     ${user.getFullname()}
                                     <span class="dropdown-arrow"></span>
                                 </button>
+
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile">Profile</a></li>
+                                        <c:if test="${user.getUserType() eq 'Admin'}">
+                                        <li><a class="dropdown-item" href="admin/adminSite">Admin Manager</a></li>
+                                        </c:if>  
                                     <li><a class="dropdown-item" href="signout">Sign out</a></li>
+
                                 </ul>
                             </div>
 
                         </c:if>
+
                         <c:if test="${user == null}">
                             <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal"
                                     data-bs-target="#loginModal">
@@ -97,7 +103,7 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label class="form-label">Email address</label>
-                                <input type="email" class="form-control shadow-none" name="email" required>
+                                <input type="input" class="form-control shadow-none" name="email" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Password</label>
@@ -128,7 +134,7 @@
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <form>
+                    <form method="post" action="signup">
                         <div class="modal-header">
                             <h5 class="modal-title d-flex align-items-lg-center">
                                 <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registration
@@ -151,32 +157,59 @@
                                         <label class="form-label">Email</label>
                                         <input type="email" class="form-control shadow-none" name="email" required">
                                     </div>
+                                    <c:if test="${messEmail !=null}">
+                                        <p class="text-danger">${messEmail}</p>
+                                    </c:if>
                                     <div class="col-md-6 p-0 mb-3">
                                         <label class="form-label">Phone number</label>
-                                        <input type="number" class="form-control shadow-none" name="phone" required>
+                                        <input type="number" class="form-control shadow-none" name="phone" id="phone" required>
+                                        <div id="phone-error" class="text-danger"></div>
+                                    </div>
+                                    <div class="col-md-6 p-0 mb-3">
+                                        <label class="form-label">username</label>
+                                        <input type="input" class="form-control shadow-none" name="username" id="username" required>
+                                        <div  class="text-danger"></div>
+                                    </div>
+                                    <c:if test="${messUser !=null}">
+                                        <p class="text-danger">${messUser}</p>
+                                    </c:if>
+                                    <div class="col-md-6 p-0 mb-3">
+                                        <label class="form-label">Căn cước công dân</label>
+                                        <input type="number" class="form-control shadow-none" name="cccd" required>
                                     </div>
                                     <div class="col-md-12 p-0 mb-3">
                                         <label class="form-label">Address</label>
                                         <textarea class="form-control shadow-none" rows="1" name="address" required"></textarea>
                                     </div>
 
-                                    <div class="col-md-6 p-0 mb-3">
-                                        <label class="form-label">Date of birth</label>
-                                        <input type="date" class="form-control shadow-none" name="date" required">
+                                    <div class="col-md-6 ps-0 mb-3">
+                                        <label class="form-label">User Type</label>
+                                        <br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="userType" value="User" id="userCheckbox" checked>
+                                            <label class="form-check-label" for="userCheckbox">User</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="userType" value="Staff booking" id="staffCheckbox">
+                                            <label class="form-check-label" for="staffCheckbox">Staff</label>
+                                        </div>
                                     </div>
+
+
+
                                     <div class="col-md-6 ps-0 mb-3">
                                         <label class="form-label">Password</label>
                                         <input type="password" class="form-control shadow-none" name="password" id="password" required>
                                     </div>
-                                    <c:if test="${re_password !=null}">
-                                        <p class="text-danger">${re_password}</p>
+                                    <c:if test="${messPass !=null}">
+                                        <p class="text-danger">${messPass}</p>
                                     </c:if>
                                     <div class="col-md-6 p-0 mb-3">
                                         <label class="form-label">Confirm Password</label>
                                         <input type="password" class="form-control shadow-none" name="re_password" required>
                                     </div>
-                                    <c:if test="${re_password !=null}">
-                                        <p class="text-danger">${re_password}</p>
+                                    <c:if test="${messRePass !=null}">
+                                        <p class="text-danger">${messRePass}</p>
                                     </c:if>
                                 </div>
                             </div>
@@ -193,10 +226,10 @@
     <!-- JavaScript code -->
     <script>
         <c:if test="${showModal}">
-            <c:set var="showModalJS" value="true" />
+            <c:set var="showModalJS_login" value="true" />
         </c:if>
 
-        <c:if test="${showModalJS}">
+        <c:if test="${showModalJS_login}">
         window.addEventListener('DOMContentLoaded', (event) => {
             document.querySelector('button[data-bs-target="#loginModal"]').click();
         });
@@ -217,6 +250,35 @@
         });
 
     </script>
+    !<!-- modal register show -->
 
+    <script>
+        <c:if test="${showModalRegister}">
+            <c:set var="showModalJS_register" value="true" />
+        </c:if>
+        <c:if test="${showModalJS_register}">
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('button[data-bs-target="#registerModal"]').click();
+        });
+        </c:if>
+    </script>
+    <script>
+        // JavaScript validation
+        const phoneInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phone-error');
+
+        phoneInput.addEventListener('input', function () {
+            // Remove any existing error message
+            phoneError.textContent = '';
+
+            // Validate phone number
+            const phoneNumber = phoneInput.value.trim();
+            const phoneRegex = /^\d{10}$/; // Assuming a 10-digit phone number
+
+            if (!phoneRegex.test(phoneNumber)) {
+                phoneError.textContent = 'Please enter a valid 10-digit phone number';
+            }
+        });
+    </script>
 
 </html>

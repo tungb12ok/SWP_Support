@@ -2,86 +2,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yadovuvi-Hote</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/common.css">
-    <style>
-        .check-form {
-            margin-top: -50px;
-            z-index: 2;
-            position: relative;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yadovuvi-Hote</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="css/common.css">
+        <style>
+            .check-form {
+                margin-top: -50px;
+                z-index: 2;
+                position: relative;
+            }
+        </style>
 
-</head>
+    </head>
 
-<body class="bg-light">
-    <!--header-->
-        <nav
-            class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lag-3 py-lg-2 shadow-sm sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand me-5 fw-blod fs-3 h-font" href="index.jsp">Yadovuvi</a>
-                <button class="navbar-toggler shadow-non" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="hotel.jsp">KhÃ¡ch sáº¡n</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="index.jsp">Tours</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="#">VÃ© mÃ¡y bay</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="#">Cáº©m nang du lá»ch</a>
-                        </li>
+    <body class="bg-light">
+        !<!-- navbar include by components -->
+        <%@include file="conponents/navbar.jsp" %>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Others
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item me-2" href="#">Æ¯u ÄÃ£i Äáº·c biá»t</a></li>
-                                <li><a class="dropdown-item me-2" href="#">Giá»i thiá»u</a></li>
-                                <li><a class="dropdown-item me-2" href="#">Há» trá»£</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2"
-                            data-bs-toggle="modal" data-bs-target="#loginModal">
-                            Login
-                        </button>
-                        <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
-                            data-bs-target="#registerModal">
-                            Register
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
 
         <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="">
@@ -90,7 +41,7 @@
                                 <i class="bi bi-person-circle fs-3 me-2"></i>User Login
                             </h5>
                             <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                                    aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
@@ -101,8 +52,8 @@
                                 <label class="form-label">Password</label>
                                 <input type="password" class="form-control shadow-none">
                                 <span id="passwordHelpInline" class="form-text">
-                                Must be 8-20 characters long.
-                            </span>
+                                    Must be 8-20 characters long.
+                                </span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
@@ -116,7 +67,7 @@
         </div>
 
         <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <form>
@@ -125,7 +76,7 @@
                                 <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registration
                             </h5>
                             <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                                    aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="container-fluid">
@@ -468,11 +419,11 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
                     <iframe class="w-100 rounded mb-4" height="320px"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61349.64700643722!2d108.16550605945213!3d16.04716481482946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0xfc14e3a044436487!2sDa%20Nang%2C%20H%E1%BA%A3i%20Ch%C3%A2u%20District%2C%20Da%20Nang%2C%20Vietnam!5e0!3m2!1sen!2s!4v1684212710762!5m2!1sen!2s"
-                        loading="lazy"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61349.64700643722!2d108.16550605945213!3d16.04716481482946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0xfc14e3a044436487!2sDa%20Nang%2C%20H%E1%BA%A3i%20Ch%C3%A2u%20District%2C%20Da%20Nang%2C%20Vietnam!5e0!3m2!1sen!2s!4v1684212710762!5m2!1sen!2s"
+                            loading="lazy"></iframe>
                     <h5>Address</h5>
                     <a href="https://goo.gl/maps/y7UaX1FvWmmb2hUa6" target="_blank"
-                        class="d-inline-block text-decoration-none text-dark mb-2"><i class="bi bi-geo-alt-fill"></i>
+                       class="d-inline-block text-decoration-none text-dark mb-2"><i class="bi bi-geo-alt-fill"></i>
                         99, Hai Chau, Da Nang, Viet Nam</a>
                 </div>
                 <div class="col-lg-4 col-md-4">
@@ -530,8 +481,8 @@
         <h6 class="text-center bg-dark text-white p-3 m-0">Design and development by Yadovuvi team</h6>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 
@@ -551,7 +502,7 @@
                 grabCursor: true,
                 centeredSlides: true,
                 loop: true,
-                slidesPerView:"auto",
+                slidesPerView: "auto",
                 slidesPerView: "3",
                 coverflowEffect: {
                     rotate: 50,
@@ -579,6 +530,6 @@
                 }
             });
         </script>
-</body>
+    </body>
 
 </html>

@@ -11,7 +11,7 @@ package entities;
 public class User {
     private int userID;
     private String fullname;
-    private int cmnd;
+    private String cmnd;
     private String email;
     private String userName;
     private String password;
@@ -22,7 +22,18 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String fullname, int cmnd, String email, String userName, String password, String phone, String userType, boolean isBlocked) {
+    public User(int userID, String fullname, String cmnd, String email, String userName, String phone, String userType, boolean isBlocked) {
+        this.userID = userID;
+        this.fullname = fullname;
+        this.cmnd = cmnd;
+        this.email = email;
+        this.userName = userName;
+        this.phone = phone;
+        this.userType = userType;
+        this.isBlocked = isBlocked;
+    }
+    
+    public User(int userID, String fullname, String cmnd, String email, String userName, String password, String phone, String userType, boolean isBlocked) {
         this.userID = userID;
         this.fullname = fullname;
         this.cmnd = cmnd;
@@ -50,11 +61,11 @@ public class User {
         this.fullname = fullname;
     }
 
-    public int getCmnd() {
+    public String getCmnd() {
         return cmnd;
     }
 
-    public void setCmnd(int cmnd) {
+    public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
     }
 

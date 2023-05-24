@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author tungl
  */
-@WebServlet(name = "SignoutServlet", urlPatterns = {"/signout"})
+@WebServlet(name = "SignoutAdminServlet", urlPatterns = {"/signout"})
 public class SignoutServlet extends HttpServlet {
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

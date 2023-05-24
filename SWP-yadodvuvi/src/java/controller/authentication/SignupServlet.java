@@ -22,32 +22,51 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(name = "SignupServlet", urlPatterns = {"/signup"})
 public class SignupServlet extends HttpServlet {
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    boolean status = true;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        UserDAO dao = new UserDAO();
-        User u = dao.checkAuthentication(user, password);
-        request.setAttribute("user", u);
-        HttpSession session = request.getSession();
-        session.setAttribute("user", null);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String username = request.getParameter("username");
+        String phone = request.getParameter("phone");
+        String cccd = request.getParameter("cccd");
+        String address = request.getParameter("address");
+        String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("re_password");
+        String role = request.getParameter("userType");
 
+        UserDAO dao = new UserDAO();
+        if (dao.searchUser("Email", email) != null) {
+            request.setAttribute("messEmail", "Email exist!");
+            status = false;
+        }
+        if (dao.searchUser("User", username) != null) {
+            request.setAttribute("messUser", "Username exist!");
+            status = false;
+        }
+        if (!password.matches(".{8,}")) {
+            request.setAttribute("messPass", "Password great than 8 character!");
+            status = false;
+        }
+        if (!password.equals(confirmPassword)) {
+            request.setAttribute("messRePass", "Password and confirmpassword is same!");
+            status = false;
+        }
+
+        if (status) {
+            dao.registerUser(lastName + firstName, cccd, email, username, password, phone, role, true);
+        } else {
+            request.setAttribute("showModalRegister", true);
+        }
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
 }

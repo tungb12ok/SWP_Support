@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package controller.admin;
 
-import DAO.TourDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,31 +11,39 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import DAO.*;
+import entities.User;
 import java.util.List;
-import entities.*;
-import java.util.ArrayList;
 
 /**
  *
  * @author tungl
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "GetAccountServlet", urlPatterns = {"/admin/getAccount"})
+public class GetAccountServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        TourDAO dao = new TourDAO();
-        List<Tour> list = new ArrayList<>();
-        list = dao.loadAllTour();
-        request.setAttribute("tour", list);
-       request.getRequestDispatcher("index.jsp").forward(request, response);
+        UserDAO dao = new UserDAO();
+        List<User> list = dao.getAll();
+        request.setAttribute("listAcc", list);
+        request.getRequestDispatcher("accounts.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        String type = request.getParameter("userType");
+        if (type.equalsIgnoreCase("all")) {
+            request.getRequestDispatcher("accounts.jsp").forward(request, response);
+
+        }
+        UserDAO dao = new UserDAO();
+        List<User> list = dao.getAllByType(type);
+        request.setAttribute("listAcc", list);
+//        response.getWriter().print(type);
+        request.getRequestDispatcher("accounts.jsp").forward(request, response);
 
     }
 }

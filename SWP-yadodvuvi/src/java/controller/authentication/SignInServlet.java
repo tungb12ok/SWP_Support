@@ -48,12 +48,13 @@ public class SignInServlet extends HttpServlet {
         request.setAttribute("user", u);
         HttpSession session = request.getSession();
         session.setAttribute("user", u);
+        request.setAttribute("showModalRegister", false);
+//        response.getWriter().print(u.getUserType());
         if (u == null) {
             request.setAttribute("showModal", true);
             request.setAttribute("mess", "Email or password not correct!");
-
-            // Forward the request to the same page (index.jsp)
             request.getRequestDispatcher("index.jsp").forward(request, response);
+
         } else {
             response.sendRedirect("home");
         }
